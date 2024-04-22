@@ -1,4 +1,4 @@
-package io.railflow.frameworks.cucumber.java;
+package io.railflow.demo.cucumber;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

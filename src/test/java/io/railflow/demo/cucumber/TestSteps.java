@@ -1,8 +1,13 @@
-package io.railflow.frameworks.cucumber.java;
+package io.railflow.demo.cucumber;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -32,6 +37,16 @@ public class TestSteps extends TestBase {
 
     @Then("User should navigate to the home page")
     public void user_should_navigate_to_the_home_page() {
-		assertTrue(driver().findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")).isDisplayed());
+        final WebElement element = assertDoesNotThrow(() ->
+            driver().findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")));
+
+        assertNotNull(element);
+        assertTrue(element.isDisplayed());
+    }
+
+    @Then("User should not navigate to the home page")
+    public void user_should_not_navigate_to_the_home_page() {
+        assertThrows(NoSuchElementException.class, () ->
+            driver().findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/span")));
     }
 }

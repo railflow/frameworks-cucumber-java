@@ -1,4 +1,4 @@
-package io.railflow.frameworks.cucumber.java;
+package io.railflow.demo.cucumber;
 
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;
@@ -10,8 +10,8 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectPackages("io.railflow.frameworks.cucumber.java")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "io.railflow.frameworks.cucumber.java")
+@SelectPackages("io.railflow.demo.cucumber")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, json:target/test-reports/cucumber.json")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "io.railflow.demo.cucumber")
 public class TestRunner {
 }
