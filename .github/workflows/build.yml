@@ -20,11 +20,11 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Setup NodeJS 20
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        cache: 'npm'
+    # - name: Setup NodeJS 20
+    #   uses: actions/setup-node@v4
+    #   with:
+    #     node-version: 20
+    #     cache: 'npm'
     - name: Setup Railflow CLI
       run: npm install railflow
     - name: Build with Maven
