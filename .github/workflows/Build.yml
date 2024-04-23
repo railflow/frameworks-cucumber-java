@@ -15,16 +15,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    # - name: Setup NodeJS 20
-    #   uses: actions/setup-node@v4
-    #   with:
-    #     node-version: 20
-    #     cache: 'npm'
+    - name: Setup NodeJS 20
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
     - name: Setup Railflow CLI
       run: npm install railflow
     - name: Build with Maven
@@ -32,4 +32,5 @@ jobs:
     - name: Run Cucumber tests
       run: mvn test
     - name: Export results to TestRail
+      if: always()
       run: npx railflow -k LUKKL-WIGVV-IIHEL-EEQWK -url https://railflow.testrail.io -u ali.raza@railflow.io -p Goliath1! -pr "Cucumber Demo" -path All -f cucumber -r target/test-reports/cucumber.json -sm name -tp All -mp Release
