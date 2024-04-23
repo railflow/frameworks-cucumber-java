@@ -16,7 +16,7 @@ public class TestBase {
         container.start();
         driver = new RemoteWebDriver(container.getSeleniumAddress(), new ChromeOptions());
     }
-
+    
     protected WebDriver driver() {
         return driver;
     }
