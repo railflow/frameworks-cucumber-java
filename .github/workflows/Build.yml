@@ -33,4 +33,4 @@ jobs:
       run: mvn test
     - name: Export results to TestRail
       if: always()
-      run: npx railflow -k LUKKL-WIGVV-IIHEL-EEQWK -url https://railflow.testrail.io -u ali.raza@railflow.io -p Goliath1! -pr "Cucumber Demo" -path All -f cucumber -r target/test-reports/cucumber.json -sm name -tp All -mp Release
+      run: npx railflow -k ${{ secrets.LICENSE_KEY}} -url https://railflow.testrail.io -u ${{ secrets.TESTRAIL_USERNAME}} -p ${{ secrets.TESTRAIL_PASSWORD}} -pr "Cucumber Demo" -path All -f cucumber -r target/test-reports/cucumber.json -sm name -tp All -mp Release
