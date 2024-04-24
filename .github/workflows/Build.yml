@@ -34,3 +34,8 @@ jobs:
     - name: Export results to TestRail
       if: always()
       run: npx railflow -k LUKKL-WIGVV-IIHEL-EEQWK -url https://railflow.testrail.io -u ali.raza@railflow.io -p Goliath1! -pr "Cucumber Demo" -path All -f cucumber -r target/test-reports/cucumber.json -sm name -tp All -mp Release
+    - name: Archive test report
+      uses: actions/upload-artifact@v4
+      with:
+        name: cucumber-test-report
+        path: target/test-reports/cucumber.json
